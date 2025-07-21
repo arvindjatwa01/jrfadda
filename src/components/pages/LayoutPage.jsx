@@ -9,13 +9,13 @@ import FooterPage from "components/common/FooterPage";
 const LayoutPage = () => {
     return (
         <div className="flex h-screen">
-            <div className="flex flex-col flex-1">
+            <div className="flex flex-col flex-1 space-y-4">
                 <HeaderPage />
-                <SubHeader />
-                <div className={`flex-1 overflow-y-auto py-6 h-[calc(100vh-4rem)]`}>
+                {/* <SubHeader /> */}
+                <div className={`flex-1 overflow-y-auto h-[calc(100vh-4rem)]`}>
                     <Outlet />
                 </div>
-                <FooterPage />
+                {/* <FooterPage /> */}
             </div>
         </div>
     );
