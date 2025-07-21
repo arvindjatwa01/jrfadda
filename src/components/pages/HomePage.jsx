@@ -185,7 +185,7 @@ const HomePage = () => {
                 </h2>
                 <div className="hidden lg:grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
                     {categories.map((category, index) => (
-                        <div className="hiddemborder-2 border-[#126CB6] rounded-xl shadow-md relative">
+                        <div className="border-2 border-[#126CB6] rounded-xl shadow-md relative">
                             <div className="bg-[url('/images/category-bg.png')] bg-cover rounded-xl p-6 relative text-center">
                                 <h2 className="text-xl font-semibold text-[#126CB6] text-center my-3">{category.title}</h2>
                                 <button className="text-white bg-blue-600 px-5 py-2 rounded-full font-medium hover:opacity-90 transition">Explore Category</button>
