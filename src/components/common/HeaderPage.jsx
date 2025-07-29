@@ -16,7 +16,7 @@ const HeaderPage = () => {
             <header className="top-0 left-0 h-16">
                 <div className="max-w-7xl mx-auto p-4 flex justify-between items-center">
                     <div className="flex items-center">
-                        <Link to={HOME_PAGE_URL} className="hidden sm:block">
+                        <Link to={HOME_PAGE_URL} className="hidden lg:block">
                             <img src="/images/header-logo.png" alt="logo image" className="w-60" />
                         </Link>
                         <div className="lg:hidden flex items-center" onClick={toggleMobileMenu}>
