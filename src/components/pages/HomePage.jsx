@@ -233,6 +233,46 @@ const testimonials = [
     },
 ];
 
+// Feature cards data
+// const featureCards = [
+//     {
+//         position: "top-0 left-0",
+//         width: "w-[357px]",
+//         height: "h-[82px]",
+//         text: "One stop solution for UPSC CSE preparation",
+//     },
+//     {
+//         position: "top-[165px] left-[86px]",
+//         width: "w-[337px]",
+//         height: "h-[71px]",
+//         text: "HD Live Sessions",
+//     },
+//     {
+//         position: "top-px left-[833px]",
+//         width: "w-[245px]",
+//         height: "h-[68px]",
+//         text: "Free Study Material",
+//         textWidth: "w-[340px]",
+//         textLeft: "left-0",
+//     },
+//     {
+//         position: "top-[165px] left-[779px]",
+//         width: "w-[360px]",
+//         height: "h-[70px]",
+//         text: "Chat section for students to connect",
+//         textWidth: "w-[337px]",
+//         textLeft: "left-[23px]",
+//     },
+// ];
+
+// Feature cards data without absolute positioning
+const featureCards = [
+    { text: "One stop solution for UPSC CSE preparation" },
+    { text: "HD Live Sessions" },
+    { text: "Free Study Material" },
+    { text: "Chat section for students to connect" },
+];
+
 const TestimonialCard = ({ name, role, image, text }) => (
     <div className="relative">
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2  w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mb-6">
@@ -669,9 +709,191 @@ const HomePage = () => {
             <section className="py-12 px-4 bg-cover bg-no-repeat">
                 <div className="text-center mb-10">
                     <h2 className="text-3xl font-bold text-gray-800">Download India's Best Learning App</h2>
-                    <p className="text-gray-700 font-semibold text-base max-w-2xl mx-auto">We're available on Android devices and platforms. Study from anywhere at your convenience.</p>
+                    <p className="text-gray-700 font-semibold text-base max-w-2xl mx-auto">
+                        We're available on Android devices and platforms. Study from anywhere at your convenience.
+                    </p>
+                </div>
+
+                <div className="flex flex-col md:flex-row justify-between items-center mx-auto gap-8">
+                    {/* Feature cards */}
+                    <div className="flex flex-wrap justify-center gap-3 md:gap-10 w-full md:w-1/2">
+                        {featureCards.map((card, index) => (
+                            <div key={index} className="bg-[#126cb6] text-white rounded-2xl p-2 lg:p-4 w-[200px] md:w-[350px] lg:w-[400px] shadow-lg">
+                                <p className="font-bold text-sm lg:text-xl text-center">{card.text}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Image Section */}
+                    <div className="flex-shrink-0 w-full md:w-1/2">
+                        <img className="w-3/4 h-auto lg:h-full object-cover rounded-lg" alt="Mobile app preview" src="/images/app-info.png" />
+                    </div>
                 </div>
             </section>
+            <div>
+                <div className="bg-blue-700 text-white py-10 px-6 md:px-12">
+                    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
+                        <div>
+                            <div className="flex items-center space-x-2 mb-4 text-white">
+                                <img src="/images/jrf-text-logo.png" className="h-6 filter invert brightness-0" />
+                            </div>
+                            <p className="text-gray-200">
+                                JRFAdda is a premier online platform dedicated to empowering aspirants preparing for UGC NET and state eligibility exams. Our mission is to
+                                deliver affordable, high-quality education and resources to help students achieve their academic and professional goals.
+                            </p>
+                        </div>
+
+                        {/* Our Courses */}
+                        <div>
+                            <h3 className="text-white text-base font-bold mb-3">Our Courses</h3>
+                            <ul className="space-y-2 text-gray-200">
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span> UGC NET</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span> UGC NET JRF Hindi</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>SET</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Assistant Professor</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Teaching Exam</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Useful Links */}
+                        <div>
+                            <h3 className="text-white text-base font-bold mb-3">Useful Links</h3>
+                            <ul className="space-y-2 text-gray-200">
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Contact</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Privacy Policy</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Terms Of Service</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Site Map</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Help Center</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Support Us */}
+                        <div>
+                            <h3 className="text-white text-base font-bold mb-3">Support Us</h3>
+                            <ul className="space-y-2 text-gray-200">
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>About Us</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Disclaimer</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Press Releases</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Privacy & Policy</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Help Center</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div className="bg-gray-900 text-white py-8 px-4">
+                    <div className="container mx-auto max-w-7xl">
+                        <section className="mb-8">
+                            <h2 className="text-3xl font-bold mb-4">About JRFAdda</h2>
+                            <p className="text-lg">
+                                JRFadda is a premier online platform dedicated to empowering aspirants preparing for UGC NET and state eligibility exams. Our mission is to
+                                deliver affordable, high-quality education and resources to help students achieve their academic and professional goals. With a comprehensive
+                                repository of study materials, mock tests, previous year papers, and expert-guided courses, JRFadda has become a trusted companion for
+                                thousands of students across India.
+                            </p>
+                        </section>
+
+                        <section className="mb-8">
+                            <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
+                            <p className="text-lg">
+                                At JRFadda, we envision a future where quality education is accessible to everyone, regardless of their background. Our goal is to nurture the
+                                intellectual growth of students, fostering a community of scholars who excel in their chosen fields.
+                            </p>
+                        </section>
+
+                        <section className="mb-8">
+                            <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
+                            <p className="text-lg">
+                                We aim to simplify the preparation journey for UGC NET and state exams by offering in-depth subject knowledge, personalized guidance, and the
+                                best study materials. Through our affordable courses and expert mentoring, we strive to ensure that every aspirant has an equal opportunity to
+                                succeed.
+                            </p>
+                        </section>
+
+                        <section>
+                            <h2 className="text-3xl font-bold mb-4">Why Choose JRFAdda</h2>
+                            <ul className="list-disc pl-6 text-lg">
+                                <li>Expert-curated courses designed by top educators.</li>
+                                <li>A vast collection of previous year papers, mock tests, and e-books.</li>
+                                <li>Resources tailored for UGC NET aspirants and state eligibility exams.</li>
+                                <li>Accessible and economical learning solutions for students from all walks of life.</li>
+                            </ul>
+                            <p className="mt-4 text-lg">
+                                With a commitment to excellence and innovation, JRFadda continues to set new benchmarks in education by bridging the gap between ambition and
+                                achievement.
+                            </p>
+                        </section>
+                    </div>
+                </div>
+                <div className="bg-black text-white py-6">
+                    <footer className="max-w-7xl mx-auto">
+                        <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
+                            {/* Copyright Text */}
+                            <p className="text-sm text-center sm:text-left">&copy; copyright {new Date().getFullYear()} OTSAdda Private Limited. All Rights Reserved.</p>
+
+                            {/* Social Media Icons */}
+                            <div className="flex space-x-4 mt-4 sm:mt-0">
+                                <a href="#" className="text-white hover:text-gray-400">
+                                    <Facebook size={24} />
+                                </a>
+                                <a href="#" className="text-white hover:text-gray-400">
+                                    <Instagram size={24} />
+                                </a>
+                                <a href="#" className="text-white hover:text-gray-400">
+                                    <Twitter size={24} />
+                                </a>
+                                {/* <a href="#" className="text-white hover:text-gray-400">
+                                <Pinterest size={24} />
+                            </a> */}
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
         </div>
     );
 };
