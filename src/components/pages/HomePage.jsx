@@ -1,53 +1,10 @@
-import BannerMaster from "components/master/banner/BannerMaster";
-import {
-    ArrowLeft,
-    ArrowRight,
-    Bell,
-    BellRing,
-    ChevronLeft,
-    ChevronRight,
-    Facebook,
-    Instagram,
-    Lightbulb,
-    Linkedin,
-    Mail,
-    MapPin,
-    MessageCircle,
-    Phone,
-    ShieldCheck,
-    Smile,
-    Twitter,
-    User,
-    Youtube,
-} from "lucide-react";
-import React, { useRef } from "react";
+import React from "react";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import MantorsSection from "components/master/dashboard/MantorsSection";
+import { BellRing, ChevronRight, Facebook, Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone, Twitter, User, Youtube } from "lucide-react";
+
 import Carousel from "components/common/Carousel";
-import MentorsCarousel from "components/master/dashboard/MentorsCarousel";
-
-const settings = {
-    dots: false,
-    infinite: true,
-    speed: 600,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
-    responsive: [
-        {
-            breakpoint: 1024,
-            settings: { slidesToShow: 2 },
-        },
-        {
-            breakpoint: 768,
-            settings: { slidesToShow: 1 },
-        },
-    ],
-};
+import BannerMaster from "components/master/banner/BannerMaster";
+import MantorsSection from "components/master/dashboard/MantorsSection";
 
 const categories = [
     { title: "NET JRF", icon: "/images/category-icon.png", color: "blue", buttonColor: "bg-blue-600", borderColor: "border-b-blue-600" },
@@ -58,74 +15,6 @@ const categories = [
     { title: "NET JRF Hindi", icon: "/images/category-icon.png", color: "purple", buttonColor: "bg-purple-600", borderColor: "border-b-purple-600" },
     { title: "SET", icon: "/images/category-icon.png", color: "sky", buttonColor: "bg-sky-400", borderColor: "border-b-sky-400" },
     { title: "Assistant Professor", icon: "/images/category-icon.png", color: "gray", buttonColor: "bg-gray-800", borderColor: "border-b-gray-800" },
-];
-
-// Dummy image URLs (replace with real images)
-const courses = [
-    {
-        id: 1,
-        img: "/images/ytimage.jpeg", // Replace with your actual image
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
-    {
-        id: 2,
-        img: "/images/ytimage.jpeg",
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
-    {
-        id: 3,
-        img: "/images/ytimage.jpeg",
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
-    {
-        id: 4,
-        img: "/images/ytimage.jpeg",
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
-    {
-        id: 5,
-        img: "/images/ytimage.jpeg",
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
-    {
-        id: 6,
-        img: "/images/ytimage.jpeg",
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
-    {
-        id: 7,
-        img: "/images/ytimage.jpeg",
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
-    {
-        id: 8,
-        img: "/images/ytimage.jpeg",
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
 ];
 
 const channels = [
@@ -146,75 +35,6 @@ const channels = [
     },
 ];
 
-const testimonialData = [
-    {
-        id: 1,
-        name: "Rohit Sharma",
-        role: "JRF Student",
-        image: "images/aditi.jpg", // replace with actual image path
-        text: "I'm Raushali Goyal, and JRFAdda's course was crucial in my UGC NET Public Administration journey. Aditi Mam's expert videos and doubt-clearing sessions were game-changers.",
-    },
-    {
-        id: 2,
-        name: "Priya Verma",
-        role: "JRF Student",
-        image: "images/aditi.jpg", // replace with actual image path
-        text: "The study material and live sessions helped me tremendously to clear my UGC NET exams. The guidance was simply amazing.",
-    },
-    {
-        id: 3,
-        name: "Amit Kumar",
-        role: "JRF Student",
-        image: "images/aditi.jpg", // replace with actual image path
-        text: "I highly recommend JRFAdda. The practice sessions and expert guidance really made a difference in my preparation journey.",
-    },
-];
-
-const mentors = [
-    {
-        name: "Aditi Ma'am",
-        subject: "Computer Science (JRF)",
-        image: "/images/mentor/aditi.jpg",
-        showReadMore: true,
-    },
-    {
-        name: "Aayushi Ma'am",
-        subject: "Computer Science (JRF)",
-        image: "/images/mentor/aayushi.png",
-        social: true,
-    },
-    {
-        name: "Priyanka Ma'am",
-        subject: "Computer Science (JRF)",
-        image: "/images/mentor/priyanka.jpg",
-        social: true,
-    },
-    {
-        name: "Juhi Ma'am",
-        subject: "Computer Science (JRF)",
-        image: "/images/mentor/juhi.png",
-        social: true,
-    },
-    // {
-    //     name: "Juhi Ma'am",
-    //     subject: "Computer Science (JRF)",
-    //     image: "/images/mentor/juhi.png",
-    //     social: true,
-    // },
-    // {
-    //     name: "Juhi Ma'am",
-    //     subject: "Computer Science (JRF)",
-    //     image: "/images/mentor/juhi.png",
-    //     social: true,
-    // },
-    // {
-    //     name: "Juhi Ma'am",
-    //     subject: "Computer Science (JRF)",
-    //     image: "/images/mentor/juhi.png",
-    //     social: true,
-    // },
-];
-
 const testimonials = [
     {
         name: "Rohit Sharma",
@@ -231,39 +51,12 @@ const testimonials = [
         image: "/images/mentor/priyanka.jpg", // Replace with actual image path or URL
         feedback: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat dui...",
     },
+    {
+        name: "Rakesh Sharma",
+        image: "/images/mentor/priyanka.jpg", // Replace with actual image path or URL
+        feedback: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat dui...",
+    },
 ];
-
-// Feature cards data
-// const featureCards = [
-//     {
-//         position: "top-0 left-0",
-//         width: "w-[357px]",
-//         height: "h-[82px]",
-//         text: "One stop solution for UPSC CSE preparation",
-//     },
-//     {
-//         position: "top-[165px] left-[86px]",
-//         width: "w-[337px]",
-//         height: "h-[71px]",
-//         text: "HD Live Sessions",
-//     },
-//     {
-//         position: "top-px left-[833px]",
-//         width: "w-[245px]",
-//         height: "h-[68px]",
-//         text: "Free Study Material",
-//         textWidth: "w-[340px]",
-//         textLeft: "left-0",
-//     },
-//     {
-//         position: "top-[165px] left-[779px]",
-//         width: "w-[360px]",
-//         height: "h-[70px]",
-//         text: "Chat section for students to connect",
-//         textWidth: "w-[337px]",
-//         textLeft: "left-[23px]",
-//     },
-// ];
 
 // Feature cards data without absolute positioning
 const featureCards = [
@@ -273,37 +66,7 @@ const featureCards = [
     { text: "Chat section for students to connect" },
 ];
 
-const TestimonialCard = ({ name, role, image, text }) => (
-    <div className="relative">
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2  w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-            <img src={image} alt="User" className="w-20 h-20 rounded-full border-4 border-white shadow-md" />
-        </div>
-        <div className="max-w-sm h-[270px] rounded-tl-[5rem] rounded-br-[5rem] overflow-hidden text-white shadow-lg flex flex-col items-center text-center bg-gradient-to-r from-blue-400 to-blue-600 p-6 pt-16">
-            <p className="text-sm mb-4">{text}</p>
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold">{name}</h3>
-            <p className="text-sm">{role}</p>
-            <div className="flex justify-center mt-4 space-x-1">
-                {[...Array(5)].map((_, idx) => (
-                    <svg key={idx} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 fill-current text-yellow-400" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.955h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448 1.287 3.955c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.371 2.448c-.785.57-1.84-.197-1.54-1.118l1.287-3.955-3.37-2.448c-.784-.57-.38-1.81.588-1.81h4.162l1.286-3.955z" />
-                    </svg>
-                ))}
-            </div>
-        </div>
-    </div>
-);
-
-const CategoryCard = ({ name, icon }) => (
-    <div className="bg-white shadow-lg rounded-lg p-4 w-full sm:w-1/4 flex flex-col items-center text-center space-y-4">
-        <img src={icon} alt={name} className="w-12 h-12" />
-        <h3 className="text-xl font-semibold">{name}</h3>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Explore Category</button>
-    </div>
-);
-
 const HomePage = () => {
-    const prevRef = useRef(null);
-    const nextRef = useRef(null);
     return (
         <div className="space-y-6">
             <BannerMaster />
@@ -314,7 +77,7 @@ const HomePage = () => {
                 </h2>
                 <div className="hidden lg:grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
                     {categories.map((category, index) => (
-                        <div className="border-2 border-[#126CB6] rounded-xl shadow-md relative">
+                        <div className="border-2 border-[#126CB6] rounded-xl shadow-md relative" key={index}>
                             <div className="bg-[url('/images/category-bg.png')] bg-cover rounded-xl p-6 relative text-center">
                                 <h2 className="text-xl font-semibold text-[#126CB6] text-center my-3">{category.title}</h2>
                                 <button className="text-white bg-blue-600 px-5 py-2 rounded-full font-medium hover:opacity-90 transition">Explore Category</button>
@@ -344,126 +107,10 @@ const HomePage = () => {
                 </div>
             </div>
             <div>
-                {/* <MantorsSection /> */}
-                {/* <section className="relative py-12 px-4 bg-cover bg-no-repeat" style={{ backgroundImage: `url(/images/category-bg.png)` }}>
-                    <div className="text-center mb-10">
-                        <h2 className="text-4xl font-bold text-gray-800">Expert Mentor</h2>
-                        <p className="text-gray-700 mt-2 max-w-2xl mx-auto">
-                            At JRFadda, our experienced mentors are here to provide personalized guidance and support to help you master the UGC NET and SET exams. Start your
-                            journey to success today!
-                        </p>
-                    </div>
+                <MantorsSection />
+            </div>
 
-                    <div className="relative max-w-7xl mx-auto">
-                        <div ref={prevRef} className="absolute top-1/2 left-0 z-10 -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full cursor-pointer hover:bg-blue-700">
-                            <ChevronLeft />
-                        </div>
-                        <div ref={nextRef} className="absolute top-1/2 right-0 z-10 -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full cursor-pointer hover:bg-blue-700">
-                            <ChevronRight />
-                        </div>
-
-                        <Swiper
-                            modules={[Navigation]}
-                            spaceBetween={20}
-                            slidesPerView={1}
-                            onBeforeInit={(swiper) => {
-                                if (typeof swiper.params.navigation !== "boolean") {
-                                    swiper.params.navigation.prevEl = prevRef.current;
-                                    swiper.params.navigation.nextEl = nextRef.current;
-                                }
-                            }}
-                            navigation={{
-                                prevEl: prevRef.current,
-                                nextEl: nextRef.current,
-                            }}
-                            breakpoints={{
-                                0: { slidesPerView: 1 }, // 👈 Mobile
-                                640: { slidesPerView: 1 }, // 👈 Small screens
-                                768: { slidesPerView: 2 }, // 👈 Tablets
-                                1024: { slidesPerView: 4 }, // 👈 Desktops
-                            }}
-                        >
-                            {mentors.map((mentor, index) => (
-                                <SwiperSlide key={index}>
-                                    <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                                        <img src={mentor.image} alt={mentor.name} className="w-full object-cover" />
-                                        <div className="p-4">
-                                            <h3 className="text-lg font-semibold text-gray-800">{mentor.name}</h3>
-                                            <p className="text-sm text-gray-600 font-semibold">{mentor.subject}</p>
-
-                                            {mentor.showReadMore && (
-                                                <a href="#" className="text-blue-600 text-sm mt-2 inline-block">
-                                                    Read More &rarr;
-                                                </a>
-                                            )}
-
-                                            {mentor.social && (
-                                                <div className="flex justify-start gap-4 mt-4 text-gray-600">
-                                                    <a href="#" className="bg-gray-200 p-2 rounded-full">
-                                                        <Facebook className="w-5 h-5" />
-                                                    </a>
-                                                    <a href="#" className="bg-gray-200 p-2 rounded-full">
-                                                        <Instagram className="w-5 h-5" />
-                                                    </a>
-                                                    <a href="#" className="bg-gray-200 p-2 rounded-full">
-                                                        <Twitter className="w-5 h-5" />
-                                                    </a>
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                    </div>
-                </section> */}
-
-                <section className="py-12 px-4 bg-cover bg-no-repeat" style={{ backgroundImage: `url(${`/images/category-bg.png`})` }}>
-                    <div className="text-center mb-10">
-                        <h2 className="text-4xl font-bold text-gray-800">Expert Mentor</h2>
-                        <p className="text-gray-700 mt-2 max-w-2xl mx-auto">
-                            At JRFadda, our experienced mentors are here to provide personalized guidance and support to help you master the UGC NET and SET exams. Start your
-                            journey to success today!
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
-                        {mentors.map((mentor, index) => (
-                            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-                                <img src={mentor.image} alt={mentor.name} className="w-full object-cover" />
-                                <div className="p-4">
-                                    <h3 className="text-lg font-semibold text-gray-800">{mentor.name}</h3>
-                                    <p className="text-sm text-gray-600 font-semibold">{mentor.subject}</p>
-
-                                    {mentor.showReadMore && (
-                                        <a href="#" className="text-blue-600 text-sm mt-2 inline-block">
-                                            Read More &rarr;
-                                        </a>
-                                    )}
-
-                                    {mentor.social && (
-                                        <div className="flex justify-start gap-4 mt-4 text-gray-600">
-                                            <a href="#" className="bg-gray-200 p-2 rounded-full">
-                                                <Facebook className="w-5 h-5" />
-                                            </a>
-                                            <a href="#" className="bg-gray-200 p-2 rounded-full">
-                                                <Instagram className="w-5 h-5" />
-                                            </a>
-                                            <a href="#" className="bg-gray-200 p-2 rounded-full">
-                                                <Twitter className="w-5 h-5" />
-                                            </a>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="flex justify-center mt-8 space-x-4">
-                        <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">&lt;</button>
-                        <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">&gt;</button>
-                    </div>
-                </section>
+            <div>
                 <div className="bg-blue-100 py-10 px-4 text-center">
                     <h2 className="text-xl font-semibold mb-8">Explore Our YouTube Channels for Expert Learning Resources</h2>
                     <div className="flex flex-col md:flex-row justify-center items-center gap-6">
@@ -482,7 +129,7 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
-            <div className="max-w-6xl mx-auto p-6 bg-white">
+            <div className="max-w-7xl mx-auto p-6 bg-white">
                 <h2 className="text-4xl font-bold text-center mb-10">Offline Center</h2>
                 <div className="flex flex-col md:flex-row gap-6 md:gap-12">
                     <div className="md:w-1/2 space-y-4">
@@ -561,7 +208,7 @@ const HomePage = () => {
             </div>
 
             <div className="bg-blue-50">
-                <div className="max-w-6xl mx-auto bg-blue-50 py-16 px-4 md:px-8">
+                <div className="max-w-7xl mx-auto bg-blue-50 py-16 px-4 md:px-8">
                     <div className="grid md:grid-cols-2 gap-10 bg-white rounded-3xl overflow-hidden shadow-xl">
                         <div className="bg-white p-8">
                             <h2 className="text-3xl font-bold mb-2">
@@ -666,45 +313,46 @@ const HomePage = () => {
                 </div>
             </div>
 
-            {/* <div className="max-w-7xl mx-auto px-4 py-16">
-                <h2 className="text-4xl font-semibold text-center text-gray-900 mb-8">Our Customer Feedback</h2>
-                <div className="relative">
-                    <div className="flex space-x-6 overflow-x-auto">
+            <section className="py-12 px-4">
+                <div className="text-center mb-10">
+                    <h2 className="text-4xl font-bold text-gray-800">Our Customer Feedback</h2>
+                </div>
+                <div className="max-w-7xl mx-auto">
+                    <Carousel>
                         {testimonials.map((testimonial, index) => (
-                            <div key={index} className="flex-shrink-0 w-80 p-4 border rounded-lg shadow-md bg-white">
-                                <div className="flex items-center space-x-4">
-                                    <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full object-cover" />
-                                    <div>
-                                        <h3 className="font-semibold text-lg">{testimonial.name}</h3>
-                                        <div className="flex text-yellow-500">
-                                            {[...Array(5)].map((_, starIndex) => (
-                                                <svg
-                                                    key={starIndex}
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    fill={starIndex < 4 ? "currentColor" : "none"}
-                                                    viewBox="0 0 24 24"
-                                                    stroke="currentColor"
-                                                    className="w-5 h-5"
-                                                >
-                                                    <path fillRule="evenodd" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                                                </svg>
-                                            ))}
+                            <div className="px-3 max-w-fit" key={index}>
+                                {/* Added mb-4 for spacing */}
+                                <div className="flex-shrink-0 p-4 border rounded-lg shadow-md bg-white">
+                                    <div className="flex items-center space-x-4">
+                                        <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full object-cover" />
+                                        <div>
+                                            <h3 className="font-semibold text-lg">{testimonial.name}</h3>
+                                            <div className="flex text-yellow-500">
+                                                {[...Array(5)].map((_, starIndex) => (
+                                                    <svg
+                                                        key={starIndex}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill={starIndex < 4 ? "currentColor" : "none"}
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                        className="w-5 h-5"
+                                                    >
+                                                        <path
+                                                            fillRule="evenodd"
+                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                                                        />
+                                                    </svg>
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
+                                    <p className="text-sm text-gray-500 mt-2">{testimonial.feedback}</p>
                                 </div>
-                                <p className="text-sm text-gray-500 mt-2">{testimonial.feedback}</p>
                             </div>
                         ))}
-                    </div>
-
-                    <button className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-500 text-white px-3 py-2 rounded-full">
-                        <ArrowLeft size={24} />
-                    </button>
-                    <button className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-500 text-white px-3 py-2 rounded-full">
-                        <ArrowRight size={24} />
-                    </button>
+                    </Carousel>
                 </div>
-            </div> */}
+            </section>
 
             <section className="py-12 px-4 bg-cover bg-no-repeat">
                 <div className="text-center mb-10">

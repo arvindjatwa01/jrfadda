@@ -17,7 +17,7 @@ export default defineConfig({
         },
     },
     server: {
-        host: "192.168.1.6", // To bind to all IPs, or use your IP like '192.168.1.100'
+        host: "192.168.1.5", // To bind to all IPs, or use your IP like '192.168.1.100'
         port: 8001, // You can change the port if needed
     },
 });
