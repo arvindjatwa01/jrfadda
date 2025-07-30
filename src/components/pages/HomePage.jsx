@@ -1,106 +1,20 @@
-import { Bell, Facebook, Instagram, Lightbulb, Linkedin, Mail, MapPin, MessageCircle, Phone, ShieldCheck, Smile, Twitter, User, Youtube } from "lucide-react";
 import React from "react";
 
-import Slider from "react-slick";
+import { BellRing, ChevronRight, Facebook, Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone, Twitter, User, Youtube } from "lucide-react";
 
-const settings = {
-    dots: false,
-    infinite: true,
-    speed: 600,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
-    responsive: [
-        {
-            breakpoint: 1024,
-            settings: { slidesToShow: 2 },
-        },
-        {
-            breakpoint: 768,
-            settings: { slidesToShow: 1 },
-        },
-    ],
-};
+import Carousel from "components/common/Carousel";
+import BannerMaster from "components/master/banner/BannerMaster";
+import MantorsSection from "components/master/dashboard/MantorsSection";
 
 const categories = [
-    { title: "NET JRF", color: "blue", buttonColor: "bg-blue-600", borderColor: "border-blue-600" },
-    { title: "NET JRF Hindi", color: "green", buttonColor: "bg-green-600", borderColor: "border-green-600" },
-    { title: "SET", color: "yellow", buttonColor: "bg-yellow-500", borderColor: "border-yellow-500" },
-    { title: "Assistant Professor", color: "teal", buttonColor: "bg-teal-600", borderColor: "border-teal-600" },
-    { title: "NET JRF", color: "red", buttonColor: "bg-red-500", borderColor: "border-red-500" },
-    { title: "NET JRF Hindi", color: "purple", buttonColor: "bg-purple-600", borderColor: "border-purple-600" },
-    { title: "SET", color: "sky", buttonColor: "bg-sky-400", borderColor: "border-sky-400" },
-    { title: "Assistant Professor", color: "gray", buttonColor: "bg-gray-800", borderColor: "border-gray-800" },
-];
-
-// Dummy image URLs (replace with real images)
-const courses = [
-    {
-        id: 1,
-        img: "/images/ytimage.jpeg", // Replace with your actual image
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
-    {
-        id: 2,
-        img: "/images/ytimage.jpeg",
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
-    {
-        id: 3,
-        img: "/images/ytimage.jpeg",
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
-    {
-        id: 4,
-        img: "/images/ytimage.jpeg",
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
-    {
-        id: 5,
-        img: "/images/ytimage.jpeg",
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
-    {
-        id: 6,
-        img: "/images/ytimage.jpeg",
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
-    {
-        id: 7,
-        img: "/images/ytimage.jpeg",
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
-    {
-        id: 8,
-        img: "/images/ytimage.jpeg",
-        title: "Premium Dec 2025 CS Batch (Paper1+Paper2)",
-        price: "1599.00",
-        originalPrice: "1899.00",
-        discount: "10 % OFF",
-    },
+    { title: "NET JRF", icon: "/images/category-icon.png", color: "blue", buttonColor: "bg-blue-600", borderColor: "border-b-blue-600" },
+    { title: "NET JRF Hindi", icon: "/images/category-icon.png", color: "green", buttonColor: "bg-green-600", borderColor: "border-b-green-600" },
+    { title: "SET", icon: "/images/category-icon.png", color: "yellow", buttonColor: "bg-yellow-500", borderColor: "border-b-yellow-500" },
+    { title: "Assistant Professor", icon: "/images/category-icon.png", color: "teal", buttonColor: "bg-teal-600", borderColor: "border-b-teal-600" },
+    { title: "NET JRF", icon: "/images/category-icon.png", color: "red", buttonColor: "bg-red-500", borderColor: "border-b-red-500" },
+    { title: "NET JRF Hindi", icon: "/images/category-icon.png", color: "purple", buttonColor: "bg-purple-600", borderColor: "border-b-purple-600" },
+    { title: "SET", icon: "/images/category-icon.png", color: "sky", buttonColor: "bg-sky-400", borderColor: "border-b-sky-400" },
+    { title: "Assistant Professor", icon: "/images/category-icon.png", color: "gray", buttonColor: "bg-gray-800", borderColor: "border-b-gray-800" },
 ];
 
 const channels = [
@@ -121,158 +35,181 @@ const channels = [
     },
 ];
 
-const testimonialData = [
+const testimonials = [
     {
-        id: 1,
         name: "Rohit Sharma",
-        role: "JRF Student",
-        image: "images/aditi.jpg", // replace with actual image path
-        text: "I'm Raushali Goyal, and JRFAdda's course was crucial in my UGC NET Public Administration journey. Aditi Mam's expert videos and doubt-clearing sessions were game-changers.",
+        image: "/images/mentor/aditi.jpg", // Replace with actual image path or URL
+        feedback: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat dui...",
     },
     {
-        id: 2,
-        name: "Priya Verma",
-        role: "JRF Student",
-        image: "images/aditi.jpg", // replace with actual image path
-        text: "The study material and live sessions helped me tremendously to clear my UGC NET exams. The guidance was simply amazing.",
+        name: "Ritu",
+        image: "/images/mentor/aayushi.png", // Replace with actual image path or URL
+        feedback: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat dui...",
     },
     {
-        id: 3,
-        name: "Amit Kumar",
-        role: "JRF Student",
-        image: "images/aditi.jpg", // replace with actual image path
-        text: "I highly recommend JRFAdda. The practice sessions and expert guidance really made a difference in my preparation journey.",
+        name: "Raushali Goyal",
+        image: "/images/mentor/priyanka.jpg", // Replace with actual image path or URL
+        feedback: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat dui...",
+    },
+    {
+        name: "Rakesh Sharma",
+        image: "/images/mentor/priyanka.jpg", // Replace with actual image path or URL
+        feedback: "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat dui...",
     },
 ];
 
-const TestimonialCard = ({ name, role, image, text }) => (
-    <div className="relative">
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2  w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-            <img src={image} alt="User" className="w-20 h-20 rounded-full border-4 border-white shadow-md" />
-        </div>
-        <div className="max-w-sm h-[270px] rounded-tl-[5rem] rounded-br-[5rem] overflow-hidden text-white shadow-lg flex flex-col items-center text-center bg-gradient-to-r from-blue-400 to-blue-600 p-6 pt-16">
-            <p className="text-sm mb-4">{text}</p>
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold">{name}</h3>
-            <p className="text-sm">{role}</p>
-            <div className="flex justify-center mt-4 space-x-1">
-                {[...Array(5)].map((_, idx) => (
-                    <svg key={idx} xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 fill-current text-yellow-400" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.955h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.448 1.287 3.955c.3.921-.755 1.688-1.54 1.118L10 13.347l-3.371 2.448c-.785.57-1.84-.197-1.54-1.118l1.287-3.955-3.37-2.448c-.784-.57-.38-1.81.588-1.81h4.162l1.286-3.955z" />
-                    </svg>
-                ))}
-            </div>
-        </div>
-    </div>
-);
+// Feature cards data without absolute positioning
+const featureCards = [
+    { text: "One stop solution for UPSC CSE preparation" },
+    { text: "HD Live Sessions" },
+    { text: "Free Study Material" },
+    { text: "Chat section for students to connect" },
+];
 
 const HomePage = () => {
     return (
         <div className="space-y-6">
-            <h4 className="text-2xl font-bold text-center">Top Bar</h4>
-            <div className="px-4 py-10 max-w-screen-xl mx-auto">
+            <BannerMaster />
+            <div className="px-4 max-w-screen-xl mx-auto">
                 <h2 className="text-3xl font-bold text-center mb-10">
                     Select Your Course, Secure Your UGC NET <br />
                     Success Today!
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {categories.map((item, index) => (
-                        <div
-                            key={index}
-                            className={`bg-white rounded-xl shadow-md p-6 flex flex-col items-center justify-between border-b-4 ${item.borderColor} transition duration-300`}
-                        >
-                            {/* Icon Circle */}
-                            <div className={`w-20 h-20 rounded-full bg-${item.color}-100 flex items-center justify-center mb-4`}>
-                                <img src="/images/jrf-category.png" alt="UGC jrf-logo" className="w-24 h-24 object-cover" />
+                <div className="hidden lg:grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
+                    {categories.map((category, index) => (
+                        <div className="border-2 border-[#126CB6] rounded-xl shadow-md relative" key={index}>
+                            <div className="bg-[url('/images/category-bg.png')] bg-cover rounded-xl p-6 relative text-center">
+                                <h2 className="text-xl font-semibold text-[#126CB6] text-center my-3">{category.title}</h2>
+                                <button className="text-white bg-blue-600 px-5 py-2 rounded-full font-medium hover:opacity-90 transition">Explore Category</button>
                             </div>
 
-                            {/* Title */}
-                            <h2 className="text-lg font-semibold text-center mb-4">{item.title}</h2>
+                            <div className="w-12 h-12 border-2 border-[#126CB6] rounded-full flex items-center justify-center absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                <img src={category.icon} alt="UGC jrf-logo" className="w-8 h-8 object-cover rounded-full border-4" />
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {categories.map((item, index) => (
+                        <div key={index} className={`bg-white rounded-xl shadow-lg p-6 border-2 flex flex-col border-b-4 ${item.borderColor} transition duration-300`}>
+                            <div className="flex items-center gap-x-3 mb-4">
+                                <div className={`w-20 h-20 rounded-full bg-${item.color}-100 flex items-center justify-center`}>
+                                    <img src="/images/jrf-category.png" alt="UGC jrf-logo" className="object-cover" />
+                                </div>
+                                <h2 className="text-3xl font-semibold text-[#126CB6] text-center">{item.title}</h2>
+                            </div>
 
                             {/* Button */}
-                            <button className={`text-white ${item.buttonColor} px-5 py-2 rounded-full font-medium hover:opacity-90 transition`}>Explore Category</button>
+                            <button className={`text-white ${item.buttonColor} px-5 py-2 w-fit rounded-full font-medium hover:opacity-90 transition`}>Explore Category</button>
                         </div>
                     ))}
                 </div>
             </div>
-            <div className="bg-gray-50 py-10">
-                <div className="max-w-screen-xl  px-4 mx-auto">
-                    <h2 className="text-3xl font-semibold text-center mb-8">UGC NET Hindi Course</h2>
-                    <Slider {...settings}>
-                        {courses.map((course) => (
-                            <div key={course.id} className="px-3">
-                                {" "}
-                                {/* Add padding to each slide */}
-                                <div className="border bg-white rounded-xl shadow-md">
-                                    <div className="relative p-4">
-                                        <img src={course.img} alt={`Course: ${course.title}`} className="w-full sm:h-40 object-fill rounded-xl" />
-                                        <div className="py-4">
-                                            <h3 className="text-sm font-medium mb-2 text-gray-900">{course.title}</h3>
-                                            <div className="flex items-center space-x-3 mb-2">
-                                                <p className="text-lg font-semibold text-gray-800">Rs.{course.price}</p>
-                                                <p className="text-sm line-through text-red-500">Rs.{course.originalPrice}</p>
-                                            </div>
-                                            <a href="#" className="text-blue-600 font-medium text-sm hover:underline" aria-label={`Enroll in ${course.title}`}>
-                                                Enroll Now →
-                                            </a>
-                                        </div>
-                                        <div className="absolute top-5 left-0 bg-blue-600 text-white text-xs px-2 py-1 rounded">{course.discount}</div>
-                                    </div>
+            <div>
+                <MantorsSection />
+            </div>
+
+            <div>
+                <div className="bg-blue-100 py-10 px-4 text-center">
+                    <h2 className="text-xl font-semibold mb-8">Explore Our YouTube Channels for Expert Learning Resources</h2>
+                    <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+                        {channels.map((channel, index) => (
+                            <div key={index} className="bg-white rounded-2xl shadow-md p-6 w-full max-w-xs flex flex-col items-center">
+                                <div className="mb-4 border rounded-full shadow-2xl">
+                                    <img src="/images/jrf-logo.png" alt="Channel Icon" className="w-16 h-16 mx-auto" />
                                 </div>
+                                <h3 className="text-base font-semibold mb-2">{channel.name}</h3>
+                                <button className="bg-blue-600 text-white text-sm font-semibold px-4 py-2 rounded-full flex items-center gap-2">
+                                    {channel.subscribers}
+                                    <BellRing className="w-4 h-4" />
+                                </button>
                             </div>
                         ))}
-                    </Slider>
+                    </div>
                 </div>
             </div>
-            <div className="bg-white py-16">
-                <div className="text-center mb-10">
-                    <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900">Explore Our YouTube Channels for Expert Learning Resources</h2>
-                </div>
-                <div className="max-w-6xl mx-auto px-4 grid gap-6 md:grid-cols-3">
-                    {channels.map((channel, index) => (
-                        <div key={index} className="bg-blue-600 rounded-2xl p-6 text-white text-center shadow-lg flex flex-col items-center space-y-4">
-                            <div className="bg-white rounded-full">
-                                <img src={channel.image} alt={`${channel.name} logo`} className="w-16 h-16 rounded-full" />
-                            </div>
-                            <h3 className="text-lg font-medium">{channel.name}</h3>
-                            <div className="bg-red-600 text-white px-4 py-1.5 rounded-full flex items-center space-x-2 cursor-pointer">
-                                <span className="text-sm font-semibold">{channel.subscribers}</span>
-                                <Bell size={16} />
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-            <div className="bg-gray-50">
-                {/* STATS SECTION */}
-                <section className="bg-[#f4f9f9] py-16">
-                    <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 text-center gap-10">
-                        {/* Stat 1 */}
+            <div className="max-w-7xl mx-auto p-6 bg-white">
+                <h2 className="text-4xl font-bold text-center mb-10">Offline Center</h2>
+                <div className="flex flex-col md:flex-row gap-6 md:gap-12">
+                    <div className="md:w-1/2 space-y-4">
+                        <img
+                            src="/images/office-center.png"
+                            alt="JRFADDA storefront illuminated at night with hanging decorative lights and branding including 'JRFADDA' and 'Our Team'"
+                            className="w-full h-auto rounded-lg object-cover"
+                        />
                         <div>
-                            <Smile className="mx-auto text-blue-600 w-12 h-12" />
-                            <h3 className="text-3xl font-bold text-blue-600 mt-3">1653</h3>
-                            <p className="text-lg font-medium mt-1 text-black">Happy Clients</p>
+                            <a href="#" className="text-blue-700 font-bold text-lg hover:underline" aria-label="Link to JRFADDA Jaipur">
+                                JRFADDA JAIPUR
+                            </a>
                         </div>
-
-                        {/* Stat 2 */}
-                        <div className="border-l border-r border-gray-300 px-6">
-                            <ShieldCheck className="mx-auto text-blue-600 w-12 h-12" />
-                            <h3 className="text-3xl font-bold text-blue-600 mt-3">403</h3>
-                            <p className="text-lg font-medium mt-1 text-black">Trusted Users</p>
-                        </div>
-
-                        {/* Stat 3 */}
-                        <div>
-                            <Lightbulb className="mx-auto text-blue-600 w-12 h-12" />
-                            <h3 className="text-3xl font-bold text-blue-600 mt-3">953</h3>
-                            <p className="text-lg font-medium mt-1 text-black">Projects Done</p>
+                        <p className="text-sm">
+                            <strong>Address:</strong> 3rd Floor 23, 24, Gopalpura Bypass Rd, near Triveni Flyover 25, Vishveshvariya Nagar, Arjun Nagar, Jaipur, Rajasthan
+                            302018
+                        </p>
+                        <div className="flex items-center space-x-4">
+                            <a
+                                // href="https://www.google.com/maps/dir/?api=1&destination=3rd+Floor+23,+24,+Gopalpura+Bypass+Rd,+near+Triveni+Flyover+25,+Vishveshvariya+Nagar,+Arjun+Nagar,+Jaipur,+Rajasthan+302018"
+                                href="https://www.google.com/maps/dir//3rd+Floor+23,+24,+Gopalpura+Bypass+Rd,+near+Triveni+Flyover+25,+Vishveshvariya+Nagar,+Arjun+Nagar,+Jaipur,+Rajasthan+302018/@26.8668915,75.7024022,23668m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x396db5b54197f66f:0xc061e0dac7b78867!2m2!1d75.7849003!2d26.8669807?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold hover:bg-blue-700 transition"
+                                aria-label="Get directions to JRFADDA Jaipur"
+                            >
+                                Directions
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={2}
+                                    stroke="currentColor"
+                                    className="w-4 h-4"
+                                    aria-hidden="true"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </a>
+                            <a
+                                href="tel:+911234567890"
+                                className="inline-flex items-center px-3 py-2 bg-gray-200 rounded-full text-sm font-semibold text-gray-800 hover:bg-gray-300 transition"
+                                aria-label="Call JRFADDA Jaipur phone number"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={2}
+                                    stroke="currentColor"
+                                    className="w-5 h-5 mr-1"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M3 5h2l3.6 7.59a1 1 0 01-.26 1.11l-1.75 1.75a11.05 11.05 0 005.45 5.45l1.75-1.75a1 1 0 011.11-.26L19 19v2a2 2 0 01-2 2c-7.18 0-13-5.82-13-13a2 2 0 012-2z"
+                                    />
+                                </svg>
+                                +91 12345 67890
+                            </a>
                         </div>
                     </div>
-                </section>
 
-                {/* CONTACT SECTION */}
-                <section className="py-20 px-4">
-                    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 bg-white rounded-3xl overflow-hidden shadow-xl">
-                        {/* Form */}
+                    <div className="md:w-1/2 rounded-lg overflow-hidden aspect-[4/3] shadow-md">
+                        <iframe
+                            title="Google Map showing location of JRFADDA Jaipur at Gopalpura Bypass Rd in Jaipur, Rajasthan"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAWJRq40ao0OgwMGU5hwzeYvupHGYBkvoU&q=3rd+Floor+23,+24,+Gopalpura+Bypass+Rd,+near+Triveni+Flyover+25,+Vishveshvariya+Nagar,+Arjun+Nagar,+Jaipur,+Rajasthan+302018"
+                            className="w-full h-full border-0"
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div className="bg-blue-50">
+                <div className="max-w-7xl mx-auto bg-blue-50 py-16 px-4 md:px-8">
+                    <div className="grid md:grid-cols-2 gap-10 bg-white rounded-3xl overflow-hidden shadow-xl">
                         <div className="bg-white p-8">
                             <h2 className="text-3xl font-bold mb-2">
                                 Get In <span className="text-blue-600">Touch</span>
@@ -321,200 +258,289 @@ const HomePage = () => {
                                 </button>
                             </form>
                         </div>
-
-                        {/* Contact Info */}
-                        <div className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white p-8 flex flex-col justify-between">
-                            <div>
-                                <h2 className="text-3xl font-bold mb-2">
-                                    Contact <span className="text-green-500">Now</span>
-                                </h2>
+                        <div className="bg-blue-700 text-white p-8 md:px-8 md:py-20 flex flex-col justify-between">
+                            <div className="">
+                                <h2 className="text-3xl font-bold mb-2">Contact Now</h2>
                                 <p className="text-sm mb-6">Contact our help desk for assistance</p>
 
                                 <ul className="space-y-4 text-sm">
                                     <li className="flex items-center gap-3">
-                                        <Phone className="w-5 h-5" /> +91-1234567890
+                                        <Phone className="w-5 h-5" />
+                                        <div className="flex flex-col">
+                                            <span>Phone Number</span>
+                                            <span className="font-semibold">+91-1234567890</span>
+                                        </div>
                                     </li>
                                     <li className="flex items-center gap-3">
-                                        <Mail className="w-5 h-5" /> example@gmail.com
+                                        <Mail className="w-5 h-5" />
+                                        <div className="flex flex-col">
+                                            <span>Email</span>
+                                            <span className="font-semibold">example@gmail.com</span>
+                                        </div>
                                     </li>
                                     <li className="flex items-center gap-3">
-                                        <MapPin className="w-5 h-5" /> Rajasthan, India
+                                        <MapPin className="w-5 h-5" />
+                                        <div className="flex flex-col">
+                                            <span>Address</span>
+                                            <span className="font-semibold">Rajasthan, India</span>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
 
-                            <div className="mt-10">
+                            <div className="mt-10 lg:mt-0">
                                 <p className="text-2xl mb-3">Follow Us</p>
-                                <div className="flex space-x-4 text-white">
-                                    <a href="#" className="border-2 p-1.5 rounded-full bg-white">
-                                        <Facebook className="w-6 h-6 font-bold text-blue-950 fill-blue-900" />
+                                <div className="flex flex-wrap space-x-4 text-white">
+                                    <a href="#" className="border-2 p-2 rounded-full bg-white">
+                                        <Facebook className="w-6 h-6 font-bold text-blue-950" />
                                     </a>
-                                    <a href="#" className="border-2 p-1.5 rounded-full bg-white">
+                                    <a href="#" className="border-2 p-2 rounded-full bg-white">
                                         <Instagram className="w-6 h-6 font-bold text-blue-950" />
                                     </a>
-                                    <a href="#" className="border-2 p-1.5 rounded-full bg-white">
-                                        <Linkedin className="w-6 h-6 font-bold text-blue-950 fill-blue-950" />
+                                    <a href="#" className="border-2 p-2 rounded-full bg-white">
+                                        <Linkedin className="w-6 h-6 font-bold text-blue-950" />
                                     </a>
-                                    <a href="#" className="border-2 p-1.5 rounded-full bg-white">
-                                        <Twitter className="w-6 h-6 font-bold text-blue-950 fill-blue-950" />
+                                    <a href="#" className="border-2 p-2 rounded-full bg-white">
+                                        <Twitter className="w-6 h-6 font-bold text-blue-950" />
                                     </a>
-                                    <a href="#" className="border-2 p-1.5 rounded-full bg-white">
+                                    <a href="#" className="border-2 p-2 rounded-full bg-white">
                                         <Youtube className="w-6 h-6 font-bold text-blue-950" />
-                                    </a>
-                                    <a href="#">
-                                        <i className="fab fa-facebook-f text-xl"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i className="fab fa-instagram text-xl"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i className="fab fa-linkedin text-xl"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i className="fab fa-twitter text-xl"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i className="fab fa-youtube text-xl"></i>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
             </div>
-            <div className="bg-white py-16 space-y-20">
+
+            <section className="py-12 px-4">
                 <div className="text-center mb-10">
-                    <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900">Testimonials</h2>
-                    <p className="mt-4 text-gray-600 max-w-5xl mx-auto">
-                        Hear from successful UGC NET candidates who achieved their dreams with our expert guidance and resources. Discover how our platform transformed their
-                        preparation journey and helped them secure top results.
+                    <h2 className="text-4xl font-bold text-gray-800">Our Customer Feedback</h2>
+                </div>
+                <div className="max-w-7xl mx-auto">
+                    <Carousel>
+                        {testimonials.map((testimonial, index) => (
+                            <div className="px-3 max-w-fit" key={index}>
+                                {/* Added mb-4 for spacing */}
+                                <div className="flex-shrink-0 p-4 border rounded-lg shadow-md bg-white">
+                                    <div className="flex items-center space-x-4">
+                                        <img src={testimonial.image} alt={testimonial.name} className="w-16 h-16 rounded-full object-cover" />
+                                        <div>
+                                            <h3 className="font-semibold text-lg">{testimonial.name}</h3>
+                                            <div className="flex text-yellow-500">
+                                                {[...Array(5)].map((_, starIndex) => (
+                                                    <svg
+                                                        key={starIndex}
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill={starIndex < 4 ? "currentColor" : "none"}
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                        className="w-5 h-5"
+                                                    >
+                                                        <path
+                                                            fillRule="evenodd"
+                                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                                                        />
+                                                    </svg>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p className="text-sm text-gray-500 mt-2">{testimonial.feedback}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </Carousel>
+                </div>
+            </section>
+
+            <section className="py-12 px-4 bg-cover bg-no-repeat">
+                <div className="text-center mb-10">
+                    <h2 className="text-3xl font-bold text-gray-800">Download India's Best Learning App</h2>
+                    <p className="text-gray-700 font-semibold text-base max-w-2xl mx-auto">
+                        We're available on Android devices and platforms. Study from anywhere at your convenience.
                     </p>
                 </div>
-                <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-10">
-                    {testimonialData.map((testimonial) => (
-                        <TestimonialCard key={testimonial.id} name={testimonial.name} role={testimonial.role} image={testimonial.image} text={testimonial.text} />
-                    ))}
-                </div>
-            </div>
-            <div className="bg-blue-600 w-full text-white p-8">
-                <div className="flex justify-between items-center">
-                    {/* Left side text */}
-                    <div className="max-w-lg">
-                        <h1 className="text-3xl font-bold mb-4">Download JRFADDA App</h1>
-                        <p className="text-lg mb-4">JRFAdda is perfect android app to crack NET and CSIR Exam. Hundreds of questions carefully selected for practice.</p>
-                        <ul className="list-disc pl-5 mb-4">
-                            <li>Live & recorded classes available at ease</li>
-                            <li>Dashboard for progress tracking</li>
-                            <li>Lakhs of practice questions</li>
-                        </ul>
 
-                        <div className="flex gap-x-4">
-                            <div className="flex cursor-pointer items-center">
-                                <img
-                                    className="w-44 h-auto"
-                                    src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                                    alt="Download on Google Play"
-                                />
+                <div className="flex flex-col md:flex-row justify-between items-center mx-auto gap-8">
+                    {/* Feature cards */}
+                    <div className="flex flex-wrap justify-center gap-3 md:gap-10 w-full md:w-1/2">
+                        {featureCards.map((card, index) => (
+                            <div key={index} className="bg-[#126cb6] text-white rounded-2xl p-2 lg:p-4 w-[200px] md:w-[350px] lg:w-[400px] shadow-lg">
+                                <p className="font-bold text-sm lg:text-xl text-center">{card.text}</p>
                             </div>
-                            <div className="flex cursor-pointer items-center">
-                                <img
-                                    className="w-44 h-auto"
-                                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                                    alt="Download on App Store"
-                                />
-                            </div>
-                        </div>
+                        ))}
                     </div>
 
-                    {/* Right side - App Screens */}
-                    <div className="flex flex-col items-center">
-                        {/* Phones with App content */}
-                        <div className="flex space-x-4">
-                            <div className="relative">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Android_robot.svg" alt="App Image" className="w-64 h-auto" />
-                                {/* You can replace the img above with the actual images you want */}
-                            </div>
-
-                            <div className="relative">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Android_robot.svg" alt="App Image" className="w-64 h-auto" />
-                            </div>
-                        </div>
+                    {/* Image Section */}
+                    <div className="flex-shrink-0 w-full md:w-1/2">
+                        <img className="w-3/4 h-auto lg:h-full object-cover rounded-lg" alt="Mobile app preview" src="/images/app-info.png" />
                     </div>
                 </div>
-            </div>
-            <div className="bg-gray-100 py-8 px-16">
-                <div className="flex justify-between items-start">
-                    <div className="space-y-1">
-                        <img src="/images/JRF-adda-logo.png" alt="Logo" className="h-12 object-contain bg-gray-100 fill-gray-100" />
-                        <p className="text-md text-gray-600 max-w-md">
-                            Lorem ipsum dolor sit amet consect elit sed eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consect elit sed
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
-                    </div>
-                    <div className="flex space-x-16">
-                        <div className="space-y-2">
-                            <h3 className="text-lg font-semibold">Our Courses</h3>
-                            <ul className="text-sm text-gray-600 space-y-1">
-                                <li>UGC NET</li>
-                                <li>UGC NET JRF Hindi</li>
-                                <li>SET</li>
-                                <li>Assistant Professor</li>
-                                <li>Teaching Exam</li>
+            </section>
+            <div>
+                <div className="bg-blue-700 text-white py-10 px-6 md:px-12">
+                    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
+                        <div>
+                            <div className="flex items-center space-x-2 mb-4 text-white">
+                                <img src="/images/jrf-text-logo.png" className="h-6 filter invert brightness-0" />
+                            </div>
+                            <p className="text-gray-200">
+                                JRFAdda is a premier online platform dedicated to empowering aspirants preparing for UGC NET and state eligibility exams. Our mission is to
+                                deliver affordable, high-quality education and resources to help students achieve their academic and professional goals.
+                            </p>
+                        </div>
+
+                        {/* Our Courses */}
+                        <div>
+                            <h3 className="text-white text-base font-bold mb-3">Our Courses</h3>
+                            <ul className="space-y-2 text-gray-200">
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span> UGC NET</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span> UGC NET JRF Hindi</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>SET</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Assistant Professor</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Teaching Exam</span>
+                                </li>
                             </ul>
                         </div>
-                        <div className="space-y-2">
-                            <h3 className="text-lg font-semibold">Useful Links</h3>
-                            <ul className="text-sm text-gray-600 space-y-1">
-                                <li>Contact</li>
-                                <li>Privacy Policy</li>
-                                <li>Terms Of Service</li>
-                                <li>Site Map</li>
-                                <li>Help Center</li>
+
+                        {/* Useful Links */}
+                        <div>
+                            <h3 className="text-white text-base font-bold mb-3">Useful Links</h3>
+                            <ul className="space-y-2 text-gray-200">
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Contact</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Privacy Policy</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Terms Of Service</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Site Map</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Help Center</span>
+                                </li>
                             </ul>
                         </div>
-                        <div className="space-y-2">
-                            <h3 className="text-lg font-semibold">Support Us</h3>
-                            <ul className="text-sm text-gray-600 space-y-1">
-                                <li>About us</li>
-                                <li>Disclaimer</li>
-                                <li>Press Releases</li>
-                                <li>Privacy & Policy</li>
+
+                        {/* Support Us */}
+                        <div>
+                            <h3 className="text-white text-base font-bold mb-3">Support Us</h3>
+                            <ul className="space-y-2 text-gray-200">
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>About Us</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Disclaimer</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Press Releases</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Privacy & Policy</span>
+                                </li>
+                                <li className="flex items-center gap-x-1 cursor-pointer hover:font-semibold">
+                                    <ChevronRight className="w-4 h-4" />
+                                    <span>Help Center</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="px-6 py-10">
-                <h1 className="text-4xl font-semibold text-blue-600 mb-6">About JRFAdda</h1>
-                <p className="text-lg text-gray-700 mb-6">
-                    JRFadda is a premier online platform dedicated to empowering aspirants preparing for UGC NET and state eligibility exams. Our mission is to deliver
-                    affordable, high-quality education and resources to help students achieve their academic and professional goals. With a comprehensive repository of study
-                    materials, mock tests, previous year papers, and expert-guided courses, JRFadda has become a trusted companion for thousands of students across India.
-                </p>
+                <div className="bg-gray-900 text-white py-8 px-4">
+                    <div className="container mx-auto max-w-7xl">
+                        <section className="mb-8">
+                            <h2 className="text-3xl font-bold mb-4">About JRFAdda</h2>
+                            <p className="text-lg">
+                                JRFadda is a premier online platform dedicated to empowering aspirants preparing for UGC NET and state eligibility exams. Our mission is to
+                                deliver affordable, high-quality education and resources to help students achieve their academic and professional goals. With a comprehensive
+                                repository of study materials, mock tests, previous year papers, and expert-guided courses, JRFadda has become a trusted companion for
+                                thousands of students across India.
+                            </p>
+                        </section>
 
-                <h2 className="text-3xl font-semibold text-blue-600 mb-4">Our Vision</h2>
-                <p className="text-lg text-gray-700 mb-6">
-                    At JRFadda, we envision a future where quality education is accessible to everyone, regardless of their background. Our goal is to nurture the intellectual
-                    growth of students, fostering a community of scholars who excel in their chosen fields.
-                </p>
+                        <section className="mb-8">
+                            <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
+                            <p className="text-lg">
+                                At JRFadda, we envision a future where quality education is accessible to everyone, regardless of their background. Our goal is to nurture the
+                                intellectual growth of students, fostering a community of scholars who excel in their chosen fields.
+                            </p>
+                        </section>
 
-                <h2 className="text-3xl font-semibold text-blue-600 mb-4">Our Mission</h2>
-                <p className="text-lg text-gray-700 mb-6">
-                    We aim to simplify the preparation journey for UGC NET and state exams by offering in-depth subject knowledge, personalized guidance, and the best study
-                    materials. Through our affordable courses and expert mentoring, we strive to ensure that every aspirant has an equal opportunity to succeed.
-                </p>
+                        <section className="mb-8">
+                            <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
+                            <p className="text-lg">
+                                We aim to simplify the preparation journey for UGC NET and state exams by offering in-depth subject knowledge, personalized guidance, and the
+                                best study materials. Through our affordable courses and expert mentoring, we strive to ensure that every aspirant has an equal opportunity to
+                                succeed.
+                            </p>
+                        </section>
 
-                <h2 className="text-3xl font-semibold text-blue-600 mb-4">Why Choose JRFAdda</h2>
-                <ul className="list-disc pl-6 text-lg text-gray-700 mb-6">
-                    <li>Expert-curated courses designed by top educators.</li>
-                    <li>A vast collection of previous year papers, mock tests, and e-books.</li>
-                    <li>Resources tailored for UGC NET aspirants and state eligibility exam candidates.</li>
-                    <li>Accessible and economical learning solutions for students from all walks of life.</li>
-                </ul>
+                        <section>
+                            <h2 className="text-3xl font-bold mb-4">Why Choose JRFAdda</h2>
+                            <ul className="list-disc pl-6 text-lg">
+                                <li>Expert-curated courses designed by top educators.</li>
+                                <li>A vast collection of previous year papers, mock tests, and e-books.</li>
+                                <li>Resources tailored for UGC NET aspirants and state eligibility exams.</li>
+                                <li>Accessible and economical learning solutions for students from all walks of life.</li>
+                            </ul>
+                            <p className="mt-4 text-lg">
+                                With a commitment to excellence and innovation, JRFadda continues to set new benchmarks in education by bridging the gap between ambition and
+                                achievement.
+                            </p>
+                        </section>
+                    </div>
+                </div>
+                <div className="bg-black text-white py-6">
+                    <footer className="max-w-7xl mx-auto">
+                        <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
+                            {/* Copyright Text */}
+                            <p className="text-sm text-center sm:text-left">&copy; copyright {new Date().getFullYear()} OTSAdda Private Limited. All Rights Reserved.</p>
 
-                <p className="text-lg text-gray-700">
-                    With a commitment to excellence and innovation, JRFAdda continues to set new benchmarks in education by bridging the gap between ambition and achievement.
-                </p>
+                            {/* Social Media Icons */}
+                            <div className="flex space-x-4 mt-4 sm:mt-0">
+                                <a href="#" className="text-white hover:text-gray-400">
+                                    <Facebook size={24} />
+                                </a>
+                                <a href="#" className="text-white hover:text-gray-400">
+                                    <Instagram size={24} />
+                                </a>
+                                <a href="#" className="text-white hover:text-gray-400">
+                                    <Twitter size={24} />
+                                </a>
+                                {/* <a href="#" className="text-white hover:text-gray-400">
+                                <Pinterest size={24} />
+                            </a> */}
+                            </div>
+                        </div>
+                    </footer>
+                </div>
             </div>
         </div>
     );
