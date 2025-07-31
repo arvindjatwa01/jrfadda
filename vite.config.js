@@ -16,8 +16,8 @@ export default defineConfig({
             crypto: "crypto-browserify", // Ensures no Node.js crypto dependency
         },
     },
-    server: {
-        host: "192.168.1.5", // To bind to all IPs, or use your IP like '192.168.1.100'
-        port: 8001, // You can change the port if needed
-    },
+    // server: {
+    //     host: "192.168.1.17", // To bind to all IPs, or use your IP like '192.168.1.100'
+    //     port: 8001, // You can change the port if needed
+    // },
 });

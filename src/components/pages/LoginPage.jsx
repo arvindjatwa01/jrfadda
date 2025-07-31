@@ -200,7 +200,7 @@ const LoginPage = () => {
                             <input
                                 key={index}
                                 ref={(el) => (otpRefs.current[index] = el)}
-                                type="text"
+                                type="tel"
                                 value={digit}
                                 onChange={(e) => handleOtpChange(index, e.target.value)}
                                 onKeyDown={(e) => handleOtpKeyDown(index, e)}
