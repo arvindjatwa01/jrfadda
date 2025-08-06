@@ -524,10 +524,10 @@ const HomePage = () => {
                                         />
                                         {/* <div className="w-full h-[400px] bg-[url(/images/office-center.png)] bg-contain bg-no-repeat bg-center"></div> */}
                                     </div>
-                                    <div className="flex-1 space-y-8">
+                                    <div className="flex-1 space-y-8 px-10">
                                         <div>
                                             <h3 className="text-3xl font-bold text-[#126cb6] mb-4">JRFADDA JAIPUR</h3>
-                                            <p className="text-xl leading-tight">
+                                            <p className="text-base lg:text-xl leading-tight">
                                                 <a
                                                     href="https://www.google.com/search?sca_esv=7bf8a2f3baef1f90&amp;rlz=1C1FHFK_enIN1163IN1163&amp;sxsrf=AE3TifNvTVesl5v5EppI5szhJLDpaU_N2w:1752233705310&amp;q=jrf+adda+address&amp;ludocid=13862608358281283687&amp;sa=X&amp;ved=2ahUKEwiy88Wc27SOAxXKyTgGHfUtHPEQ6BN6BAgoEAI"
                                                     rel="noopener noreferrer"
@@ -540,18 +540,18 @@ const HomePage = () => {
                                             </p>
                                         </div>
                                         <div className="flex items-center space-x-4">
-                                            <button className=" px-4 py-2 bg-[#126cb6] hover:bg-[#0e5a9e] text-white rounded-full flex items-center gap-2">
-                                                <span className="font-bold ">Directions</span>
-                                                <CornerUpRight className="w-4 h-4" />
+                                            <button className="px-2 lg:px-4 py-2 bg-[#126cb6] hover:bg-[#0e5a9e] text-white rounded-full flex items-center gap-2">
+                                                <span className="font-bold">Directions</span>
+                                                <CornerUpRight className="w-3 h-3 lg:w-4 lg:h-4" />
                                                 {/* <div className="w-3 h-3 bg-[url(/mask-group-4.png)] bg-contain"></div> */}
                                             </button>
 
-                                            <a href="tel:+911234567890" className="inline-flex items-center" aria-label="Call JRFADDA Jaipur phone number">
+                                            <a href="tel:+911234567890" className="inline-flex items-center text-nowrap" aria-label="Call JRFADDA Jaipur phone number">
                                                 <div className="flex items-center gap-2">
-                                                    <div className="w-10 h-10 bg-[#126cb6] text-white rounded-full flex items-center justify-center">
-                                                        <Phone className="w-5 h-5" />
+                                                    <div className="w-7 h-7 lg:w-10 lg:h-10 bg-[#126cb6] text-white rounded-full flex items-center justify-center">
+                                                        <Phone className="w-3 h-3 lg:w-5 lg:h-5 " />
                                                     </div>
-                                                    <span className="text-2xl font-medium">+91 12345 67890</span>
+                                                    <span className="text-base lg:text-2xl font-medium">+91 12345 67890</span>
                                                 </div>
                                             </a>
                                         </div>
