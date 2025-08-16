@@ -556,14 +556,16 @@ const HomePage = () => {
                                             </a>
                                         </div>
                                         <div className="rounded-lg overflow-hidden aspect-[2] shadow-md">
-                                            <iframe
+                                            <a href=""></a>
+                                            <img src="/images/address-map.png" alt="" className="w-full h-full border-0 object-cover"  />
+                                            {/* <iframe
                                                 title="Google Map showing location of JRFADDA Jaipur at Gopalpura Bypass Rd in Jaipur, Rajasthan"
                                                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAWJRq40ao0OgwMGU5hwzeYvupHGYBkvoU&q=3rd+Floor+23,+24,+Gopalpura+Bypass+Rd,+near+Triveni+Flyover+25,+Vishveshvariya+Nagar,+Arjun+Nagar,+Jaipur,+Rajasthan+302018"
                                                 className="w-full h-full border-0"
                                                 allowFullScreen=""
                                                 loading="lazy"
                                                 referrerPolicy="no-referrer-when-downgrade"
-                                            ></iframe>
+                                            ></iframe> */}
                                         </div>
                                     </div>
                                 </div>
